@@ -1,6 +1,7 @@
 package com.dy.test;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.TreeSet;
 
 import org.hibernate.Session;
@@ -50,13 +51,13 @@ public class StuTest {
 
 	@Test
 	public void test() {
-		ME = new ManageEmployee();
-		ArrayList<Certificate> set2 = new ArrayList<Certificate>();
+		
+		Collection<Certificate> set2 = new ArrayList<Certificate>();
 		set2.add(new Certificate("BCA"));
 		set2.add(new Certificate("BA"));
 		Integer empID2 = ME.addEmployee("Dilip", "Kumar", 3000, set2);
 		
-		ArrayList<Certificate> set1 = new ArrayList<Certificate>();
+		Collection<Certificate> set1 = new ArrayList<Certificate>();
 		set1.add(new Certificate("MCA"));
 		set1.add(new Certificate("PMP"));
 		set1.add(new Certificate("MBA"));

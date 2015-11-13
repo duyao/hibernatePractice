@@ -1,7 +1,6 @@
 package com.dy.test;
 
-import java.util.ArrayList;
-import java.util.TreeSet;
+import java.util.HashMap;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -50,31 +49,22 @@ public class StuTest {
 
 	@Test
 	public void test() {
-		ME = new ManageEmployee();
-		ArrayList<Certificate> set2 = new ArrayList<Certificate>();
-		set2.add(new Certificate("BCA"));
-		set2.add(new Certificate("BA"));
-		Integer empID2 = ME.addEmployee("Dilip", "Kumar", 3000, set2);
-		
-		ArrayList<Certificate> set1 = new ArrayList<Certificate>();
-		set1.add(new Certificate("MCA"));
-		set1.add(new Certificate("PMP"));
-		set1.add(new Certificate("MBA"));
-		
-		Integer empID1 = ME.addEmployee("Manoj", "Kumar", 4000, set1);
+
 
 		
-
-		/* List down all the employees */
-		ME.listEmployees();
-
-		/* Update employee's salary records */
-		ME.updateEmployee(empID1, 5000);
-		ME.listEmployees();
 		
-		/* Delete an employee from the database */
-		ME.deleteEmployee(empID2);
+		/* Let us have a set of certificates for the first employee */
+		HashMap<String, Certificate> set = new HashMap<String, Certificate>();
+		set.put("ComputerScience", new Certificate("MCA"));
+		set.put("BusinessManagement", new Certificate("MBA"));
+		set.put("ProjectManagement", new Certificate("PMP"));
+
+		Integer empID = ME.addEmployee("Manoj", "Kumar", 4000, set);
 		ME.listEmployees();
+
+		ME.updateEmployee(empID, 5000);
+		ME.listEmployees();
+
 	}
 
 }
